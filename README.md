@@ -25,3 +25,5 @@ Navegación y ayuda
 - El ensamblaje presenta piezas en tarjetas, pasos, acciones de comprobación y Mi configuración desplegable.
 - La bienvenida aparece una vez por navegador. El botón ? permite reiniciar los diez pasos, consultar controles o leer instrucciones de la herramienta actual.
 - Completar u omitir el tutorial guarda la preferencia en localStorage. Escape permite omitir el recorrido. El tutorial admite Tab y Enter, abre las secciones necesarias y respeta movimiento reducido.
+
+Exploralo desde aquí: https://explora-tu-pc.vercel.app/
