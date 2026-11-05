@@ -5,3 +5,119 @@
 .catalog-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:13px 0 20px}.catalog-heading h2{margin:0}.search-component{border:1px solid #8559b6;border-radius:12px;background:#8559b6;color:white;padding:11px 18px;font-size:13px;font-weight:600}.search-component:hover{background:#7449a3}
 
 #component-search{margin:0 0 20px;padding:18px;border:1px solid #e1dfe6;border-radius:15px;background:white}#component-search label{display:block;margin-bottom:9px;font-size:13px;color:#504b59}#component-query{width:100%;padding:11px 13px;border:1px solid #d7d2df;border-radius:10px;font:inherit;font-size:14px;color:#26252c;background:#fafafa}#component-query:focus-visible{outline:2px solid #8559b6;outline-offset:2px}#search-status{font-size:12px;color:#76727c;margin:12px 0}#search-results{display:flex;flex-wrap:wrap;gap:8px}
+
+.lab-tools,.lab-actions{display:flex;flex-wrap:wrap;gap:7px}.lab-tools{padding:12px 24px}.model-labels{position:absolute;inset:0;pointer-events:none}.model-label{position:absolute;z-index:1;transform:translate(-50%,-105%);pointer-events:auto;border:1px solid #b59acf;border-radius:6px;background:#fff;color:#573681;font-size:10px;padding:4px 6px;max-width:110px}.model-label::after{content:"";position:absolute;height:8px;width:1px;background:#8559b6;left:50%;top:100%}.model-label.selected{background:#694099;color:white;z-index:2}.lab-panel{background:#fff;border:1px solid #e1dfe6;border-radius:16px;padding:20px;min-width:0}.lab-panel h3{font-family:Georgia,serif;font-weight:500;font-size:22px;margin:0 0 12px}.lab-panel p,.lab-panel label{font-size:13px;line-height:1.5;color:#504b59}.lab-panel select{display:block;width:100%;max-width:100%;margin:6px 0 10px;padding:8px;border:1px solid #d7d2df;border-radius:8px;background:#fafafa;color:#26252c;font:inherit}.case-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.case-slots{border:2px solid #3d3944;padding:10px;border-radius:12px;background:#efedf2}.case-slots span{padding:8px;border:1px dashed #a49cab;border-radius:6px;font-size:11px}.case-slots .installed{background:#e8d8fa;color:#452469;border:1px solid #aa87cb}
+
+/* The viewport belongs to the model; only the toolbox content scrolls. */
+.lab-shell{height:100dvh;overflow:hidden;display:flex;flex-direction:column;background:#edecef}
+.lab-shell [hidden]{display:none!important}
+.lab-shell .top{flex:none;height:58px;padding:0 18px;gap:12px}
+
+#panel-toggle{display:none}
+.lab-shell .workspace{width:100%;max-width:none;min-height:0;flex:1;margin:0;padding:12px;grid-template-columns:minmax(0,1fr) clamp(290px,29vw,390px);gap:12px}
+.lab-shell .viewer{min-height:0;border-radius:16px}
+.lab-shell .viewer-head{min-height:62px;padding:12px 16px 8px}
+.lab-shell #scene{height:auto;min-height:0;flex:1}
+.lab-shell .viewer-foot{min-height:0;padding:8px 12px;gap:7px}
+.lab-shell .viewer-foot>span{flex:1 0 100%;min-width:0;color:#5c5764}
+.lab-shell .lab-tools{padding:0}
+#toolbox{display:flex;flex-direction:column;min-height:0;min-width:0;background:#fff;border:1px solid #dedbe4;border-radius:16px;overflow:hidden}
+
+
+.tool-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:15px}
+.tool-content .catalog{padding:0}
+.tool-content .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tool-content .card{min-height:85px;padding:10px;gap:4px}
+.tool-content .card-icon{margin-bottom:2px}
+.tool-content .info,.tool-content .lab-panel{min-height:0;padding:0;border:0;border-radius:0;overflow:visible}
+.tool-content .info h2{margin:14px 0 10px;font-size:23px}
+.mode-description{padding:10px;background:#f4eff9;border-radius:8px}
+.tool-content #part-buttons{margin-bottom:12px}
+@media(max-width:760px){
+
+ #panel-toggle{display:block}
+ .lab-shell .workspace{padding:6px;gap:6px;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,42%);}
+ .lab-shell .workspace:has(#toolbox[hidden]){grid-template-rows:minmax(0,1fr)}
+ .lab-shell .viewer-head{min-height:50px;padding:6px 10px}
+ .lab-shell .hint{display:none}
+ .lab-shell .viewer-foot button{padding:6px 8px;font-size:10px}
+ .lab-shell .viewer-foot>span{font-size:10px}
+
+
+ .tool-content{padding:10px}
+}
+
+#lab-nav{margin-left:auto}
+.lab-shell #view-modes{padding:0 16px 8px}
+.lab-shell #viewer-tools{align-items:center}
+.tool-content .catalog-heading{margin:0 0 10px}
+.tool-content .catalog-heading h2,#lab-menu h2{font:500 21px Georgia,serif;margin:0}
+.tool-content .card{min-height:0;padding:8px 10px;display:grid;grid-template-columns:auto 1fr;align-items:center}
+.tool-content .card-icon{font-size:17px;margin:0}
+.tool-content .card-sub{display:none}
+.tool-content .info{margin-top:14px;padding-top:12px;border-top:1px solid #e8e5ed}
+.mode-description{margin:0 0 10px!important}
+.terms{font-size:12px;color:#504b59}
+.terms summary{cursor:pointer;margin-bottom:8px}
+#term-definition:empty{display:none}
+#lab-back{margin-bottom:16px}
+.lab-menu,.diagnosis-options{display:grid;gap:8px}
+.lab-menu{margin-top:14px}
+.lab-menu button{padding:11px 12px}
+.build-progress{font-weight:650}
+.lab-actions button:disabled{opacity:.5;cursor:default}
+.case-slots{margin-top:12px}
+@media(max-width:420px){.lab-shell .top{padding:0 8px;gap:5px}.lab-shell .brand{gap:5px;font-size:13px}.lab-shell .logo{width:25px;height:25px}.lab-shell #lab-nav{padding:7px 8px}.lab-shell #panel-toggle{padding:6px}}
+
+.experience-controls label{display:block;font-size:13px}.experience-controls select{width:100%;padding:9px;border:1px solid #c9c1d2;border-radius:8px;background:white}.timeline,.available-parts{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.activity-indicators{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}.activity-indicators span{padding:7px;border-radius:6px;background:#eee;font-size:12px}.activity-indicators .involved{background:#e8d7fa;color:#552b7c}.assembly-status,.piece-detail{font-size:13px;line-height:1.5}.installed-summary{padding-left:18px;font-size:12px;line-height:1.8}.experience-controls progress{width:100%;accent-color:#8659b5}.check-results{margin-top:10px}.simulation-note{font-size:11px;color:#6a626f}
+
+:root{--panel-width:460px}
+.lab-shell .workspace{grid-template-columns:minmax(0,1fr) min(var(--panel-width),52vw)}
+.lab-shell .top{height:72px;position:relative;z-index:10}
+.mode-switch{display:flex;background:#eeebf2;border:1px solid #d5cfdd;border-radius:12px;padding:4px;margin-left:auto;gap:4px}
+.mode-switch button{font:600 14px Arial,sans-serif;border:0;border-radius:8px;padding:13px 20px;background:transparent;color:#51465f}
+.mode-switch button[aria-pressed=true]{background:#8055ac;color:white}
+.mode-switch #lab-nav{margin:0}
+#help{font:700 19px Arial;border:1px solid #b8a6cc;border-radius:50%;width:40px;height:40px;background:white;color:#69448d;flex:none}
+.panel-size{padding:10px 16px;display:flex;align-items:center;gap:12px;font-size:12px;background:#f7f5f9;border-bottom:1px solid #e1dbe6}
+.panel-size input{min-width:0;flex:1;accent-color:#8559b6}
+.available-parts{display:grid;grid-template-columns:1fr;gap:10px}
+.hardware-option{padding:14px;display:flex;flex-direction:column;gap:7px;font-size:13px;border-radius:12px;background:#faf9fb}
+.hardware-option strong{font-size:15px}
+.hardware-option[aria-pressed=true]{background:#eee3fa;color:#4b286e;box-shadow:inset 0 0 0 1px #8559b6}
+.hardware-option span{font-size:12px}
+.experience-controls h4{font-size:19px;margin:16px 0 10px}
+.assembly-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.assembly-steps button{font-size:11px;padding:8px 5px}
+.assembly-steps [aria-current=step]{background:#8559b6;color:white}
+.assembly-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.assembly-actions .install-button{grid-column:1/-1;grid-row:2;background:#8559b6;color:white;font-weight:700;padding:12px}
+.assembly-actions button{min-height:40px}
+.assembly-status.error{border:1px solid #d78090;background:#fff0f2;padding:12px;border-radius:10px;color:#8c2037}
+.assembly-status.success{color:#276b45}
+.primary-assembly{border-top:1px solid #ddd5e5;margin-top:16px;padding-top:8px}
+.primary-assembly h4{font-size:15px}
+.primary-actions{display:grid;grid-template-columns:1fr 1fr}
+.primary-actions button{padding:12px;min-height:44px}
+.configuration{margin-top:18px;font-size:14px}
+.configuration summary{cursor:pointer;font-weight:600}
+.tour-highlight{position:fixed;z-index:1000;border:3px solid #a978dc;border-radius:12px;box-shadow:0 0 0 9999px #17121e99;pointer-events:none}
+.tour-card{position:fixed;z-index:1001;background:white;border:1px solid #d8c4ee;box-shadow:0 8px 30px #21122d44;border-radius:14px;padding:16px;max-height:55dvh;overflow:auto;color:#292330}
+.tour-card h3{margin:6px 0;font-size:18px}
+.tour-card p{font-size:13px;line-height:1.5}
+.tour-progress{color:#78509d;margin:0;font-size:11px!important}
+.help-dialog{border:1px solid #cbb7df;border-radius:18px;padding:24px;width:min(480px,calc(100% - 24px));color:#302838}
+.help-dialog::backdrop{background:#17121e99}
+.help-dialog h2{font:500 25px Georgia,serif}
+.help-dialog p{line-height:1.6;font-size:14px}
+@media(max-width:760px){
+ .lab-shell .workspace{grid-template-columns:minmax(0,1fr)}
+ .lab-shell .top{height:auto;min-height:100px;flex-wrap:wrap;padding:8px;gap:6px}
+ .mode-switch{order:4;flex:1 0 100%;margin:0}
+ .mode-switch button{flex:1;padding:10px;font-size:14px}
+ #help{margin-left:auto;width:34px;height:34px}
+ .panel-size{display:none}
+ .tour-card{padding:12px;max-height:38dvh}
+ .assembly-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}

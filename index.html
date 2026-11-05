@@ -1,9 +1,27 @@
 <!doctype html>
 <html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Explora tu PC</title><link rel="stylesheet" href="styles.css"></head>
-<body><header class="top"><a class="brand" href="#inicio"><span class="logo">✳</span> Explora tu PC</a><nav><a href="#visor">Visor 3D</a><a href="#componentes">Componentes</a></nav></header>
-<main id="inicio"><div class="intro"><span class="eyebrow">UNA MIRADA AL INTERIOR</span><h1>Entiende tu computadora, pieza por pieza.</h1><p>Explora modelos en 3D, gira cada componente y descubre qué hace que todo funcione en conjunto.</p></div>
-<section class="workspace" id="visor"><div class="viewer"><div class="viewer-head"><div><span class="eyebrow">EXPLORACIÓN INTERACTIVA / <span id="counter">01</span></span><h2 id="viewer-title">Tarjeta madre</h2></div><span class="tag">MODELO 3D · INTERACTIVO</span></div><div id="scene" role="region" aria-label="Visor tridimensional interactivo"><div class="hint">Arrastra para girar · rueda para acercar<br>Selecciona los puntos morados</div><div class="zoom"><button id="zoom-in" aria-label="Acercar">+</button><button id="zoom-out" aria-label="Alejar">−</button></div></div><div class="viewer-foot"><span id="viewer-hint">Selecciona los puntos morados para descubrir cada parte.</span><button id="rotate" aria-pressed="true">Ⅱ Pausar giro</button><button id="reset">↺ Vista general</button></div></div>
-<aside class="info"><span class="eyebrow">● GUÍA DE COMPONENTES</span><h2 id="info-title">Tarjeta madre</h2><div id="info-content" aria-live="polite"></div><div id="part-buttons" aria-label="Partes del componente"></div><div class="tip">● Pista: también puedes hacer clic directamente sobre las piezas del modelo.</div></aside></section>
-<section class="catalog" id="componentes"><span class="eyebrow">ELIGE QUÉ EXPLORAR</span><div class="catalog-heading"><h2>Los componentes esenciales</h2><button type="button" class="search-component" aria-expanded="false" aria-controls="component-search">Buscar componente</button></div><div id="component-search" hidden><label for="component-query">Nombre del componente</label><input id="component-query" type="search" placeholder="Ej. procesador, RAM o GPU" autocomplete="off" aria-controls="search-results"><p id="search-status" role="status"></p><div id="search-results"></div></div><div id="cards" class="cards"></div></section></main><footer>Explora tu PC · Una guía visual para entender la tecnología.</footer>
+<body class="lab-shell">
+<header class="top"><div class="brand"><span class="logo" aria-hidden="true">✳</span> Explora tu PC</div><div class="mode-switch" role="group" aria-label="Modo de la plataforma"><button type="button" id="explore-nav" aria-pressed="true">Exploración 3D</button><button type="button" id="lab-nav" aria-pressed="false">Laboratorio</button></div><button type="button" id="help" aria-label="Ayuda">?</button><button class="part-button" id="panel-toggle" aria-expanded="true" aria-controls="toolbox">Herramientas</button></header>
+<main class="workspace" id="visor">
+<div class="viewer"><div class="viewer-head"><div><span class="eyebrow">EXPLORACIÓN INTERACTIVA / <span id="counter">01</span></span><h2 id="viewer-title">Tarjeta madre</h2></div><span class="tag">MODELO 3D · INTERACTIVO</span></div><div id="view-modes" class="lab-tools" role="group" aria-label="Efectos del visor"><button class="part-button" data-mode="explode" aria-pressed="false">Despiece</button><button class="part-button" data-mode="xray" aria-pressed="false">Rayos X</button><button class="part-button" data-mode="flow" aria-pressed="false">Flujo de datos</button></div><div id="scene" role="region" aria-label="Visor tridimensional interactivo"><div class="hint">Arrastra para girar · rueda para acercar<br>Selecciona los puntos morados</div><div class="zoom"><button id="zoom-in" aria-label="Acercar">+</button><button id="zoom-out" aria-label="Alejar">−</button></div></div><div class="viewer-foot"><span id="viewer-hint" role="status">Selecciona los puntos morados para descubrir cada parte.</span><div class="lab-tools" id="viewer-tools" aria-label="Rotación manual"></div><button id="rotate" aria-pressed="true">Ⅱ Pausar giro</button><button id="reset">↺ Vista general</button></div></div>
+
+<aside id="toolbox" aria-label="Herramientas del laboratorio"><label class="panel-size">Ancho del panel <input id="panel-width" type="range" min="340" max="620" value="460" step="10"></label>
+ <div class="tool-content">
+<section class="catalog" id="componentes"><div class="catalog-heading"><h2>Componentes</h2><button type="button" class="search-component" aria-expanded="false" aria-controls="component-search">Buscar componente</button></div><div id="component-search" hidden><label for="component-query">Nombre del componente</label><input id="component-query" type="search" placeholder="Ej. procesador, RAM o GPU" autocomplete="off" aria-controls="search-results"><p id="search-status" role="status"></p><div id="search-results"></div></div><div id="cards" class="cards"></div></section><section class="info" id="exploration"><span class="eyebrow">● GUÍA DE COMPONENTES</span><h2 id="info-title">Tarjeta madre</h2><div id="info-content" aria-live="polite"></div><div id="part-buttons" aria-label="Partes del componente"></div><details class="terms"><summary>Términos técnicos</summary><div id="context-terms" class="lab-actions"></div><p id="term-definition" role="status"></p></details></section>
+ <section id="laboratorio" aria-label="Laboratorio de hardware" hidden>
+  <button type="button" id="lab-back" class="part-button" hidden>← Menú del laboratorio</button>
+  <div id="lab-menu">
+   <h2>Laboratorio de hardware</h2>
+   <div class="lab-menu">
+    <button type="button" class="part-button" data-open="guide">Recorrido guiado</button>
+    <button type="button" class="part-button" data-open="run">Simulador de funcionamiento</button>
+    <button type="button" class="part-button" data-open="build">Ensamblaje de PC</button>
+    <button type="button" class="part-button" data-open="diagnosis">Diagnóstico virtual</button>
+   </div>
+  </div>
+  <div id="lab-activity"></div>
+ </section>
+ </div>
+</aside></main>
 <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 <script type="module" src="app.js"></script></body></html>
